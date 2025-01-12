@@ -1,4 +1,17 @@
-### YOLOv5 Object Detection 프로젝트 설정 및 실행 가이드
+# YOLOv5 Object Detection 프로젝트 설정 및 실행 가이드
+
+
+## 🧑‍🦲 팀원(가나다순)
+
+<table>
+  <tbody>
+    <tr>
+      <td align="center"><a href="https://github.com/RosieOh"><img src="https://github.com/SP0F0/.github/assets/62829894/89996fac-c626-44e8-ba10-3dcc17252079" width="100px;" alt=""/><br /><sub><b>오태훈</b></sub></a><br /></td>
+      <td align="center"><a href="https://github.com/sendjin5"><img src="https://github.com/SP0F0/.github/assets/62829894/fc0c73b5-3bdc-4edf-8c7f-b7b8eff9bf67" width="100px;" alt=""/><br /><sub><b>김경엽</b></sub></a><br /></td>
+    </tr>
+  </tbody>
+</table>
+
 
 > 1. 프로젝트 소개
 이 프로젝트는 YOLOv5를 사용하여 이미지에서 객체를 탐지하고, 그 결과를 웹 페이지에서 시각화하는 Django 웹 애플리케이션입니다. 업로드된 이미지를 YOLOv5 모델을 통해 분석하고, 그 결과를 웹 페이지에 표시합니다.
