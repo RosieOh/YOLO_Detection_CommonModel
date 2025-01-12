@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>천천히 객체 인식을 해보자고?</title>
+    <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" rel="stylesheet">
+    <style>
+        /* Hero 섹션 스타일 */
+        .hero-body {
+            text-align: center;
+            padding: 4rem 1.5rem;
+        }
+
+        /* Hero 배경색 및 텍스트 색상 */
+        .hero {
+            background-color: #f0f0f0;
+        }
+
+        /* 버튼 스타일 */
+        .button.is-primary {
+            font-size: 18px;
+            padding: 15px 30px;
+        }
+
+        /* 푸터 스타일 */
+        .footer {
+            background-color: #232323;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: auto; /* 페이지 내용이 적어도 푸터가 아래로 밀리도록 */
+        }
+
+        /* 상단 네비게이션 바 */
+        .navbar {
+            background-color: #232323;
+        }
+
+        .navbar-item {
+            color: white !important;
+        }
+
+        .navbar-item:hover {
+            background-color: #3e3e3e;
+        }
+
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+
+        /* 페이지 전체를 최소 높이로 설정해서 푸터가 항상 아래에 오게 합니다. */
+        html, body {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content-wrapper {
+            flex: 1;
+        }
+
+        /* 중간 콘텐츠 영역 */
+        .container {
+            margin-top: 80px; /* 네비게이션 바로 인해 일부가 가려질 수 있기 때문에 여백 추가 */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 헤더(navbar) -->
+    <nav class="navbar is-fixed-top">
+        <div class="navbar-brand">
+            <a href="{% url 'main_page' %}" class="navbar-item">YOLOv5 Object Detection</a>
+        </div>
+    </nav>
+
+    <!-- 콘텐츠 영역 -->
+    <div class="content-wrapper">
+        <!-- 메인 콘텐츠 (Hero Section) -->
+        <section class="hero is-medium">
+            <div class="hero-body">
+                <div class="container">
+                    <h1 class="title">YOLOv5를 활용한 객체 인식 공통 코드</h1>
+                    <h2 class="subtitle">사진은 너가 넣어야함</h2>
+
+                    <div class="box">
+                        <p>만드는데 2시간 걸렸다 경엽아....</p>
+                        <a href="{% url 'detect_objects' %}" class="button is-primary is-large">한번 고도리 해보자고?</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 푸터(footer) -->
+    <footer class="footer">
+        <div class="content">
+            <p>
+                <strong>만든사람 : </strong> by <a href="https://github.com" class="has-text-white">오태훈</a>. 
+                All rights reserved.
+            </p>
+            <p>
+                <a href="mailto:dhxogns920@naver.com" class="has-text-white">Contact</a> | 
+                <a href="{% url 'main_page' %}" class="has-text-white">Home</a>
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>

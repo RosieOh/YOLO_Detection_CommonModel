@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOLOv5 Object Detection</title>
+    <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" rel="stylesheet">
+    <style>
+        .image-container {
+            text-align: center;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .chart-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* 페이지 전체를 100% 높이로 설정 */
+        html, body {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content-wrapper {
+            flex: 1;
+        }
+
+        .footer {
+            background-color: #232323;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .navbar {
+            background-color: #232323;
+        }
+
+        .navbar-item {
+            color: white !important;
+        }
+
+        .navbar-item:hover {
+            background-color: #3e3e3e;
+        }
+
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .button.is-primary {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 헤더 -->
+    <nav class="navbar is-fixed-top">
+        <div class="navbar-brand">
+            <a href="{% url 'main_page' %}" class="navbar-item">YOLOv5 Object Detection</a>
+        </div>
+    </nav>
+
+    <!-- 콘텐츠 영역 -->
+    <div class="content-wrapper">
+        <div class="container is-fluid" style="margin-top: 80px;">
+            <div class="columns is-centered">
+                <div class="column is-half">
+
+                    <h1 class="title has-text-centered">YOLOv5 Object Detection</h1>
+                    <h2 class="subtitle has-text-centered">Upload an image to detect objects</h2>
+
+                    <!-- 업로드 폼 -->
+                    <div class="box">
+                        <form method="POST" enctype="multipart/form-data" id="imageUploadForm">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <button type="submit" class="button is-primary is-fullwidth">Upload Image</button>
+                        </form>
+                    </div>
+
+                    <!-- 탐지된 이미지 표시 -->
+                    {% if img_base64 %}
+                        <div class="box image-container">
+                            <h3 class="subtitle">Detected Image</h3>
+                            <img src="data:image/png;base64,{{ img_base64 }}" alt="Detected Image">
+                        </div>
+                    {% endif %}
+
+                    <!-- 객체 카운트 그래프 표시 -->
+                    {% if chart_base64 %}
+                        <div class="chart-container">
+                            <h3 class="subtitle">Detected Object Counts</h3>
+                            <img src="data:image/png;base64,{{ chart_base64 }}" alt="Object Count Chart">
+                        </div>
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 푸터(footer) -->
+    <footer class="footer">
+        <div class="content">
+            <p>
+                <strong>만든사람 : </strong> by <a href="https://github.com" class="has-text-white">오태훈</a>. 
+                All rights reserved.
+            </p>
+            <p>
+                <a href="mailto:dhxogns920@naver.com" class="has-text-white">Contact</a> | 
+                <a href="{% url 'main_page' %}" class="has-text-white">Home</a>
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
